@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2nd Year Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: blue;
+    }
+
+    .search-container {
+      margin: 20px 0;
+      position: relative;
+      width: 300px;
+    }
+
+    #searchBar {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #suggestions {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      width: 100%;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-top: none;
+      max-height: 150px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    #suggestions li {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    #suggestions li:hover {
+      background: #f0f0f0;
+    }
+
+    .course-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .course {
+      background: #e6f0ff;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .course a {
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+
+    .course a:hover {
+      color: #0066cc;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="homepage.html">Home</a>
+    <a href="secondyear.html">2nd Year</a>
+  </nav>
+
+  <h1>2nd Year Economics Notes</h1>
+
+  <!-- Search bar -->
+  <div class="search-container">
+    <input type="text" id="searchBar" placeholder="Search courses...">
+    <ul id="suggestions"></ul>
+  </div>
+
+  <div class="course-list">
+    <div class="course"><a href="YOUR_GOOGLE_DRIVE_LINK_221" target="_blank">ECO 221</a></div>
+    <div class="course"><a href="YOUR_GOOGLE_DRIVE_LINK_222" target="_blank">ECO 222</a></div>
+    <div class="course"><a href="YOUR_GOOGLE_DRIVE_LINK_223" target="_blank">ECO 223</a></div>
+    <div class="course"><a href="YOUR_GOOGLE_DRIVE_LINK_225" target="_blank">ECO 225</a></div>
+    <div class="course"><a href="YOUR_GOOGLE_DRIVE_LINK_226" target="_blank">ECO 226</a></div>
+  </div>
+
+  <footer>
+    <p>Made for students, by students</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const courses = {
+        "ECO 221": "YOUR_GOOGLE_DRIVE_LINK_221",
+        "ECO 222": "YOUR_GOOGLE_DRIVE_LINK_222",
+        "ECO 223": "YOUR_GOOGLE_DRIVE_LINK_223",
+        "ECO 225": "YOUR_GOOGLE_DRIVE_LINK_225",
+        "ECO 226": "YOUR_GOOGLE_DRIVE_LINK_226"
+      };
+
+      const searchBar = document.getElementById("searchBar");
+      const suggestions = document.getElementById("suggestions");
+
+      searchBar.addEventListener("input", () => {
+        const query = searchBar.value.toLowerCase();
+        suggestions.innerHTML = "";
+
+        if (query) {
+          const filtered = Object.keys(courses).filter(course =>
+            course.toLowerCase().includes(query)
+          );
+          filtered.forEach(course => {
+            const li = document.createElement("li");
+            li.textContent = course;
+            li.addEventListener("click", () => {
+              window.open(courses[course], "_blank"); // open notes directly
+              suggestions.style.display = "none";
+            });
+            suggestions.appendChild(li);
+          });
+          suggestions.style.display = filtered.length ? "block" : "none";
+        } else {
+          suggestions.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

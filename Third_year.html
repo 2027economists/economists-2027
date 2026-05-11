@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2nd semester</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body{
+        background: linear-gradient(to right, #05060c, #1e76e9, #1e76e9);
+        min-height:100vh;
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        padding:40px 20px;
+    }
+
+    /* Side Navigation Bar */
+    .sidenav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #2e63e9;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .sidenav .logo {
+        color: white;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .sidenav .nav-links {
+        display: flex;
+        gap: 25px;
+    }
+
+    .sidenav .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    .sidenav .nav-links a:hover {
+        background: #1e76e9;
+    }
+
+    .container{
+        width:100%;
+        max-width:700px;
+        margin-top: 60px;
+    }
+
+    .title{
+        text-align:center;
+        color:white;
+        font-size:38px;
+        margin-bottom:30px;
+        font-weight:bold;
+        letter-spacing:1px;
+    }
+
+    .page{
+        display: none;
+    }
+
+    .page.active{
+        display: block;
+        animation: fadeIn 0.8s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .divisions-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .division{
+        background:white;
+        padding:0;
+        border-radius:14px;
+        text-align:center;
+        box-shadow:0 8px 20px rgba(0,0,0,0.2);
+        transition:0.3s ease;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .division:hover{
+        transform:translateY(-5px);
+        background:#f0f8ff;
+    }
+
+    .division a{
+        text-decoration:none;
+        font-size:24px;
+        color:#1e3c72;
+        font-weight:bold;
+        text-align: center;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .division a:hover{
+        color:#ff6600;
+    }
+
+    .description{
+        font-size: 14px;
+        color: #555;
+        font-style: italic;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+        border-top: 1px solid #e0e0e0;
+        background-color: #f9f9f9;
+        margin: 0;
+    }
+
+    .pagination{
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .page-btn{
+        background:white;
+        padding:10px 20px;
+        border-radius:8px;
+        cursor: pointer;
+        font-weight: bold;
+        color:#1e3c72;
+        transition:0.3s;
+    }
+
+    .page-btn:hover, .page-btn.active{
+        background:#ff6600;
+        color:white;
+    }
+
+    @media(max-width:600px){
+        .title{
+            font-size:30px;
+        }
+
+        .division a{
+            font-size:20px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Side Navigation Bar -->
+<div class="sidenav">
+    <div class="logo">📚 Economists @2027</div>
+    <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="#">Associations</a>
+        <a href="#">Events</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="title">2nd semester</div>
+
+    <!-- Page 1: 4 divisions -->
+    <div class="page active" id="page1">
+        <div class="divisions-grid">
+            <div class="division">
+                <a href="loading3.html" target="_blank">ECO 322</a>
+                <p class="description">International Economics</p>
+            </div>
+            <div class="division">
+                <a href="loading3.html" target="_blank">ECO 323</a>
+                <p class="description">Quantitative Economics</p>
+            </div>
+            <div class="division">
+                <a href="loading3.html" target="_blank">ECO 325</a>
+                <p class="description">Project Planning Management</p>
+            </div>
+            <div class="division">
+                <a href="loading3.html" target="_blank">ECO 327</a>
+                <p class="description">Environmental and Resource Economics</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: 4 divisions -->
+    <div class="page" id="page2">
+        <div class="divisions-grid">
+            <div class="division">
+                <a href="loading3.html" target="_blank">ECO 321</a>
+                <p class="description">Monetary Economics</p>
+            </div>
+            <div class="division">
+                <a href="loading3.html" target="_blank">ECO 326</a>
+                <p class="description">Urban Economics</p>
+            </div>
+            <div class="division">
+                <a href="loading3.html" target="_blank">BUS 225</a>
+                <p class="description">Entrepreneurship and Small Business Management</p>
+            </div>
+            <div class="division">
+                <a href="loading3.html" target="_blank">POP 300</a>
+                <p class="description">Population </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <div class="page-btn active" onclick="showPage(1)">1</div>
+        <div class="page-btn" onclick="showPage(2)">2</div>
+    </div>
+</div>
+
+<script>
+    function showPage(pageNum) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('page' + pageNum).classList.add('active');
+        document.querySelector('.pagination .page-btn:nth-child(' + pageNum + ')').classList.add('active');
+    }
+</script>
+
+</body>
+</html>

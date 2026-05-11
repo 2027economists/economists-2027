@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Economists@2027- Lecture Notes & Study Materials</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    /* Side Navigation Bar */
+    .sidenav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+
+    .sidenav .logo {
+        color: #1d4ed8;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .sidenav .nav-links {
+        display: flex;
+        gap: 25px;
+    }
+
+    .sidenav .nav-links a {
+        color: #1d4ed8;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    .sidenav .nav-links a:hover {
+        color: #1d4ed8;
+        background: #eff6ff;
+    }
+
+    /* Responsive Code Display */
+    code {
+      background-color: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    pre {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 16px 0;
+      font-size: clamp(12px, 2.5vw, 14px);
+      line-height: 1.5;
+    }
+
+    pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    /* Mobile responsive adjustments */
+    @media (max-width: 640px) {
+      .sidenav {
+        padding: 10px 15px;
+      }
+
+      .sidenav .logo {
+        font-size: 18px;
+      }
+
+      .sidenav .nav-links {
+        gap: 15px;
+      }
+
+      .sidenav .nav-links a {
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+
+      pre {
+        padding: 12px;
+        font-size: 11px;
+        margin: 12px 0;
+      }
+      
+      .text-5xl {
+        font-size: 1.875rem;
+      }
+      
+      .text-3xl {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Tablet adjustments */
+    @media (min-width: 641px) and (max-width: 1024px) {
+      pre {
+        font-size: 13px;
+      }
+    }
+
+    /* Desktop optimizations */
+    @media (min-width: 1025px) {
+      pre {
+        font-size: 14px;
+      }
+    }
+
+    /* Horizontal scroll on mobile for wide content */
+    @media (max-width: 768px) {
+      .overflow-x-auto {
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
+    /* Device-specific optimizations */
+    @media (hover: hover) {
+      /* Desktop with hover capability */
+      pre:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    @media (hover: none) {
+      /* Mobile/touch devices without hover */
+      pre {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Side Navigation Bar -->
+  <div class="sidenav">
+    <div class="logo">📚 Economists @2027</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#">Associations</a>
+      <a href="#">Events</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-16 sm:py-24 px-4 sm:px-6" style="margin-top: 60px;">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+        Access All Your<br>Lecture Notes in One Place
+      </h2>
+      <p class="text-base sm:text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto px-4">
+        Simple, organized, and always available. Find lecture notes, slides, summaries, and past papers from your courses.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center px-4">
+        <button class="px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-700 rounded-xl font-semibold text-base sm:text-lg hover:bg-gray-100 transition whitespace-nowrap">
+          Browse All Notes →
+        </button>
+
+        <div class="relative group">
+          <button id="yearDropdownBtn" class="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white rounded-xl font-semibold text-base sm:text-lg hover:bg-white/10 transition flex items-center justify-center sm:justify-start gap-2 focus:outline-none w-full sm:w-auto">
+            Year of Study
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="yearDropdown" class="hidden absolute top-full left-0 mt-2 w-full sm:w-48 bg-white rounded-xl shadow-xl border-2 border-gray-300 z-20 transition-all">
+            <a href="second_year/First_year.html" class="block px-4 sm:px-6 py-3 sm:py-4 hover:bg-blue-100 hover:border-l-4 hover:border-blue-600 text-gray-800 font-medium transition-all text-sm sm:text-base">1st Year</a>
+            <a href="second_year/second_year.html" class="block px-4 sm:px-6 py-3 sm:py-4 hover:bg-blue-100 hover:border-l-4 hover:border-blue-600 text-gray-800 font-medium transition-all text-sm sm:text-base">2nd Year</a>
+            <a href="Third_year.html" class="block px-4 sm:px-6 py-3 sm:py-4 hover:bg-blue-100 hover:border-l-4 hover:border-blue-600 text-gray-800 font-medium transition-all text-sm sm:text-base">3rd Year</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-xs sm:text-sm opacity-75 px-4">
+        <div class="flex items-center justify-center gap-2">
+          <i class="fas fa-check"></i> Free for students
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <i class="fas fa-check"></i> 10,000+ notes
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <i class="fas fa-check"></i> Updated daily
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    // Dropdown toggle for Year of Study
+    const yearBtn = document.getElementById('yearDropdownBtn');
+    const yearDropdown = document.getElementById('yearDropdown');
+    if (yearBtn && yearDropdown) {
+      yearBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        yearDropdown.classList.toggle('hidden');
+      });
+      document.addEventListener('click', function(e) {
+        if (!yearDropdown.contains(e.target) && e.target !== yearBtn) {
+          yearDropdown.classList.add('hidden');
+        }
+      });
+    }
+
+    console.log('Script started loading...');
+    
+    // Search functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded, initializing search...');
+      try {
+        console.log('Inside try block...');
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        
+        console.log('Elements found:', { searchInput: !!searchInput, searchResults: !!searchResults });
+        
+      // List of available courses with their Google Drive links
+      const courses = [
+        { name: 'ECO 121', link: 'second_year/First_year.html' },
+        { name: 'PUB 125', link: 'second_year/First_year.html' },
+        { name: 'ACC 188', link: 'second_year/First_year.html' },
+        { name: 'DST 100', link: 'second_year/First_year.html' },
+        { name: 'QMS 104', link: 'https://www.dropbox.com/scl/fo/ff1u1tmmdnvkuyju57jeo/AL_IUmGLu_yDNW-VCTqMHyQ?rlkey=cmgmvzfwsa43xk6b4geegkiw3&st=s3u2atfv&dl=0' },
+        { name: 'QMS 106', link: 'second_year/First_year.html' },
+        { name: 'ECO 221', link: 'second_year/second_year.html' },
+        { name: 'ECO 222', link: 'second_year/second_year.html' },
+        { name: 'ECO 223', link: 'second_year/second_year.html' },
+        { name: 'ECO 224', link: 'second_year/second_year.html' },
+        { name: 'ECO 225', link: 'second_year/second_year.html' },
+        { name: 'ECO 226', link: 'second_year/second_year.html' },
+        { name: 'ECO 321', link: 'Third_year.html' },
+        { name: 'ECO 322', link: 'Third_year.html' },
+        { name: 'ECO 323', link: 'Third_year.html' },
+        { name: 'ECO 324', link: 'Third_year.html' },
+        { name: 'ECO 325', link: 'Third_year.html' },
+        { name: 'ECO 326', link: 'Third_year.html' },
+        { name: 'POP 201', link: 'second_year/second_year.html' },
+        { name: 'POP 202', link: 'second_year/second_year.html' }
+      ];
+
+      // Function to filter and display results
+      function updateSearchResults() {
+        const query = searchInput.value.toLowerCase().trim();
+        console.log('Search query:', query);
+        
+        if (query.length === 0) {
+          searchResults.innerHTML = '<div class="px-4 sm:px-6 py-3 text-gray-500 text-sm sm:text-base">Type to search for courses...</div>';
+          return;
+        }
+
+        // Filter courses that start with the query or contain it
+        const filteredCourses = courses.filter(course => 
+          course.name.toLowerCase().startsWith(query) || 
+          course.name.toLowerCase().includes(query)
+        );
+        
+        console.log('Filtered courses:', filteredCourses);
+
+        if (filteredCourses.length > 0) {
+          searchResults.innerHTML = filteredCourses.map(course => 
+            `<a href="${course.link}" target="_blank" class="block px-4 sm:px-6 py-3 hover:bg-blue-50 text-gray-800 text-sm sm:text-base border-b border-gray-100 last:border-b-0">${course.name}</a>`
+          ).join('');
+        } else {
+          searchResults.innerHTML = '<div class="px-4 sm:px-6 py-3 text-gray-500 text-sm sm:text-base">No courses found</div>';
+        }
+      }
+
+      // Event listeners
+      searchInput.addEventListener('input', updateSearchResults);
+      searchInput.addEventListener('focus', updateSearchResults);
+
+      console.log('Search functionality initialized.');
+      } catch (error) {
+        console.error('Search script error:', error);
+      }
+    });
+  </script>
+
+  <!-- Search Bar -->
+  <div class="max-w-4xl mx-auto -mt-8 relative px-4 sm:px-6 z-10">
+    <div class="bg-white rounded-2xl shadow-xl p-3 sm:p-4">
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-0 items-center bg-gray-100 rounded-xl px-4 sm:px-6 py-3 sm:py-4">
+        <i class="fas fa-search text-gray-400 text-lg sm:text-xl"></i>
+        <input 
+          type="text" 
+          id="searchInput"
+          placeholder="Search courses (e.g. 'ECO 121')..."
+          class="flex-1 ml-0 sm:ml-4 bg-transparent outline-none text-sm sm:text-lg placeholder-gray-400 w-full sm:w-auto">
+        <button class="bg-blue-600 text-white px-6 sm:px-8 py-3 rounded-xl font-medium hover:bg-blue-700 transition w-full sm:w-auto whitespace-nowrap">
+          Search
+        </button>
+      </div>
+    </div>
+    <!-- Search Results Dropdown -->
+    <div id="searchResults" class="bg-white border-2 border-red-500 rounded-xl shadow-lg mt-2 max-h-64 overflow-y-auto z-50 mx-4 sm:mx-6" style="position: relative; display: block;">
+      <!-- Results will be populated here -->
+      <div class="px-4 sm:px-6 py-3 text-gray-500 bg-yellow-100 border-2 border-yellow-300 text-sm sm:text-base">Type to search for courses...</div>
+    </div>
+  </div>
+  <section class="bg-white py-12 sm:py-16 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+        <h3 class="text-2xl sm:text-3xl font-semibold text-gray-900">Featured Lecture Notes</h3>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Note Card 1 -->
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition">
+          <div class="h-40 sm:h-48 relative flex items-center justify-center text-6xl" style="background-image: url('Pictures/download.webp'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+          </div>
+          <div class="p-4 sm:p-6">
+            <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+               <a href="second_year/First_year.html" class="text-blue-600 font-medium hover:underline">ECO 121</a> 
+            </div>
+            <h4 class="font-semibold text-lg sm:text-xl leading-tight mb-3">Macroeconomics - Complete Lecture Slides & Notes</h4>
+            <div class="flex justify-between text-xs sm:text-sm">
+              <span class="text-green-600 font-medium">124 pages</span>
+              <span class="text-gray-500">2 days ago</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Note Card 2 -->
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition">
+          <div class="h-40 sm:h-48 relative flex items-center justify-center text-6xl" style="background-image: url('Pictures/Screenshot 2026-05-02 142147.png'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+          </div>
+          <div class="p-4 sm:p-6">
+            <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+              <a href="second_year/second_year.html" class="text-blue-600 font-medium hover:underline">ECO 222</a>
+            </div>
+            <h4 class="font-semibold text-lg sm:text-xl leading-tight mb-3">Intermediate Macroeconomics - Complete Lecture Slides & Notes</h4>
+            <div class="flex justify-between text-xs sm:text-sm">
+              <span class="text-green-600 font-medium">89 pages</span>
+              <span class="text-gray-500">1 week ago</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Note Card 3 -->
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition">
+          <div class="h-40 sm:h-48 relative flex items-center justify-center text-6xl" style="background-image: url('Pictures/accounting.png'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+          </div>
+          <div class="p-4 sm:p-6">
+            <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+               <a href="second_year/First_year.html" class="text-blue-600 font-medium hover:underline">ACC 188</a>
+            </div>
+            <h4 class="font-semibold text-lg sm:text-xl leading-tight mb-3">Principle Of Financial Accounting - Complete Lecture Slides & Notes</h4>
+            <div class="flex justify-between text-xs sm:text-sm">
+              <span class="text-green-600 font-medium">156 pages</span>
+              <span class="text-gray-500">Yesterday</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      <div>
+        <div class="flex items-center gap-3 text-white mb-4">
+          <div class="w-8 h-8 bg-blue-600 rounded-xl flex items-center justify-center text-xl">📚</div>
+          <span class="font-bold text-lg sm:text-2xl">Economists @2027</span>
+        </div>
+        <p class="text-xs sm:text-sm">Making quality lecture notes accessible to every student.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-medium mb-3 text-sm sm:text-base">Platform</h4>
+        <ul class="space-y-2 text-xs sm:text-sm">
+          <li><a href="#" class="hover:text-white">Browse Notes</a></li>
+          <li><a href="#" class="hover:text-white">Upload Notes</a></li>
+          <li><a href="#" class="hover:text-white">Events</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-medium mb-3 text-sm sm:text-base">Community</h4>
+        <ul class="space-y-2 text-xs sm:text-sm">
+          <li><a href="#" class="hover:text-white">For Students</a></li>
+          <li><a href="#" class="hover:text-white">Request Notes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-medium mb-3 text-sm sm:text-base">Published</h4>
+        <ul class="space-y-2 text-xs sm:text-sm">
+          <li><a href="#" class="hover:text-white">About Us</a></li>
+          <li><a href="#" class="hover:text-white">Contacts: 0618552630</a></li>
+          <li><a href="#" class="hover:text-white">@1900</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center text-xs mt-12 text-gray-500">
+      © 2027 Economists. Made for students, by students.
+    </div>
+  </footer>
+
+</body>
+</html>
